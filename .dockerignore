@@ -1,0 +1,5 @@
+.vscode
+.Dockerfile
+.devops
+.circleci
+docker_out.txt
