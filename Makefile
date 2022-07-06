@@ -12,12 +12,12 @@ setup:
 
 install:
 	# This should be run from inside a virtualenv
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip install --upgrade --no-cache-dir pip &&\
+		pip install --no-cache-dir -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=myrepolib tests/*.py
-	python -m pytest --nbval notebook.ipynb
+	# python -m pytest -vv --cov=myrepolib tests/*.py
+	# python -m pytest --nbval notebook.ipynb
 
 lint:
 	hadolint Dockerfile
