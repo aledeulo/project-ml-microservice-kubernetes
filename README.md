@@ -57,3 +57,16 @@ source .devops/bin/activate
 
 ### Run app in kubernetes
 `./run_kubernetes.sh <username>/<tag_name>`
+
+#### After you run this command, the pod wont be ready to accept request, it will be in Status: Ready=False
+#### use the following command to see when the pod is ready: `kubectl describe pod`. If the status is like Status: Ready=True, then you can run `./run_kubernetes.sh <username>/<tag_name>` again and make predictions afterwards.
+
+### Make predictions:
+Once the application is running in your preferred environment, you can run from a terminal
+`./make_predictions.sh` and see the result in the logs.
+
+### Access docker logs:
+#### Tail logs in realtime
+`docker logs -f <containerId>`
+#### just see logs
+`docker logs <containerId>`
