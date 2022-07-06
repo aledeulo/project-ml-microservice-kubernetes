@@ -1,0 +1,55 @@
+$ ./run_kubernetes.sh alterdeulo/v1:latest
+pod/project-ml-kubernetes created
+NAME                    READY   STATUS              RESTARTS   AGE
+project-ml-kubernetes   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+
+
+$ kubectl describe pod project-ml-kubernetes
+Name:         project-ml-kubernetes
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Tue, 05 Jul 2022 17:07:27 +0700
+Labels:       app=project-ml-kubernetes
+Annotations:  <none>
+Status:       Pending
+IP:
+IPs:          <none>
+Containers:
+  project-ml-kubernetes:
+    Container ID:
+    Image:          alterdeulo/v1:latest
+    Image ID:
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-f5plm (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  kube-api-access-f5plm:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+
+
+
+$ ./run_kubernetes.sh alterdeulo/v1:latest
+Error from server (AlreadyExists): pods "project-ml-kubernetes" already exists
+NAME                    READY   STATUS    RESTARTS   AGE
+project-ml-kubernetes   1/1     Running   0          2m12s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
