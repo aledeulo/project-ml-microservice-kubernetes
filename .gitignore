@@ -1,2 +1,3 @@
 .vscode
 .devops
+.pytest_cache

@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/aledeulo/project-ml-microservice-kubernetes/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/aledeulo/project-ml-microservice-kubernetes/tree/master)
 
 ## Project Overview
 
@@ -36,11 +36,6 @@ source .devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
 
-### Running `app.py`
-
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
 
 ### Kubernetes Steps
 
@@ -48,3 +43,17 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+  
+### Running `app.py`
+
+1. Standalone:  `python app.py`
+2. Run in Docker:  `./run_docker.sh`
+3. Run in Kubernetes:  `./run_kubernetes.sh`
+
+### Upload docker image to dockerhub
+<strong>Note</strong>: For this step you must have a docker hub account. See here: https://hub.docker.com/
+#### Run the upload_docker.sh with two parameters: username and tagname
+`./upload_docker.sh <username> <tag_name>`
+
+### Run app in kubernetes
+`./run_kubernetes.sh <username>/<tag_name>`
